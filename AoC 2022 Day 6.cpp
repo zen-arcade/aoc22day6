@@ -4,11 +4,11 @@
 #include <string>
 #include <algorithm>
 
-bool checkRepeat(std::string buffer)    //takes a sorted string
+bool checkRepeat(std::string sortedBuffer)    //takes a sorted string only
 {
-    for (int i = 0; i < buffer.length(); i++)
+    for (int i = 0; i < sortedBuffer.length(); i++)
     {
-        if (buffer[i] == buffer[i + 1])
+        if (sortedBuffer[i] == sortedBuffer[i + 1])
             return true;                //there is a repeat character
     }
     return false;                       //no repeats
@@ -24,7 +24,7 @@ int countCharacters()
     {
         std::string buffer{};
         buffer.append(line.begin() + i, line.begin() + i + 4);
-        std::sort(buffer.begin(), buffer.end());
+        std::sort(buffer.begin(), buffer.end()); //elements with the same value grouped next to each other
         if (checkRepeat(buffer))
             ++count;
         else
